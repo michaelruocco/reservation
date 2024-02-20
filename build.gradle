@@ -92,7 +92,7 @@ java {
     withSourcesJar()
 }
 
-def gitUrl = "https://github.com/michaelruocco/library-template"
+def gitUrl = "https://github.com/michaelruocco/reservation"
 def pomConfig = {
     licenses {
         license {
@@ -130,7 +130,7 @@ publishing {
             from components.java
             pom.withXml {
                 def root = asNode()
-                root.appendNode("description", "Template repo to speed up creating new library projects")
+                root.appendNode("description", "repo to hold reservation system examples from book 'code that fits in your head'")
                 root.appendNode("name", project.name)
                 root.appendNode("url", gitUrl)
                 root.children().last() + pomConfig

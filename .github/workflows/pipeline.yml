@@ -3,7 +3,12 @@ name: pipeline
 on:
   push:
     branches-ignore:
-      - 'library-template-*'
+      - 'reservation-*'
+
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
 
 jobs:
   build:

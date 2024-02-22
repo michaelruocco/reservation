@@ -1,3 +1,9 @@
+buildscript {
+    ext {
+        springBootVersion = "3.2.0"
+    }
+}
+
 plugins {
     id "java-library"
     id "jacoco"
@@ -10,6 +16,7 @@ plugins {
     id "org.sonarqube" version "4.4.1.3373"
     id "com.adarshr.test-logger" version "4.0.0"
     id "nebula.lint" version "19.0.1"
+    id "org.springframework.boot" version "${springBootVersion}"
 }
 
 group "com.github.michaelruocco"
@@ -42,10 +49,12 @@ dependencies {
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    implementation "org.springframework.boot:spring-boot-starter-web"
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
 
-    testRuntimeOnly "org.slf4j:slf4j-simple:${slf4jVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.assertj:assertj-core:3.25.3"
     testImplementation "org.mockito:mockito-core:5.10.0"

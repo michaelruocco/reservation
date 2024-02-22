@@ -13,6 +13,8 @@ public class ReservationController {
 
     @GetMapping
     public ResponseEntity<Void> getReservations() {
-        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(null);
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(null);
     }
 }
